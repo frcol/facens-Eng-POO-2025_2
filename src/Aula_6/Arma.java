@@ -1,4 +1,4 @@
-package Aula_5;
+package Aula_6;
 
 public class Arma {
     private String nome;

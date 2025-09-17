@@ -1,10 +1,14 @@
-package Aula_5;
+package Aula_6;
 
 import java.util.ArrayList;
 
 public class Espaconave {
     private String nome;
     private ArrayList<Arma> lstArmas = new ArrayList<>();
+    
+    public Espaconave(String nome) {
+        this.nome = nome;
+    }
     
     public void addArma(Arma arma) {
         lstArmas.add(arma);
