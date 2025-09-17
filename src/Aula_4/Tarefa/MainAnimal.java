@@ -9,6 +9,7 @@ public class MainAnimal {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         AnimalVirtual animal = null;
+        boolean isVivo = true;
 
         System.out.println("=== ANIMAL VIRTUAL ===");
 
@@ -26,7 +27,6 @@ public class MainAnimal {
             
             switch (opcao) {
                 case "1": // Cadastrar
-                    clearConsole();
                     System.out.print("Nome: ");
                     String nome = in.nextLine();
 
@@ -38,7 +38,7 @@ public class MainAnimal {
 
                     animal = new AnimalVirtual(nome, tipo, idade);
                     System.out.println("? Animal cadastrado com sucesso!");
-                    clearConsole();
+                   
                     animal.mostrarStatus();
                     break;
 
@@ -48,7 +48,7 @@ public class MainAnimal {
                     }
 
                     animal.alimentar();
-                    clearConsole();
+                
                     animal.mostrarStatus();
                     break;
 
@@ -58,10 +58,11 @@ public class MainAnimal {
                     }
 
                     animal.brincar();
-                    clearConsole();
+                    
                     animal.mostrarStatus();
                     if (!animal.checkVivo()) { // morreu ao brincar
                         System.out.println("Fim de jogo. O animal morreu. Encerrando...");
+                        isVivo = false;
                     }
                     break;
 
@@ -71,7 +72,7 @@ public class MainAnimal {
                     }
 
                     animal.dormir();
-                    clearConsole();
+
                     animal.mostrarStatus();
                     break;
 
@@ -81,7 +82,6 @@ public class MainAnimal {
                         break;
                     }
 
-                    clearConsole();
                     animal.mostrarStatus();
                     if (!animal.checkVivo()) {
                         System.out.println("Fim de jogo. O animal morreu. Encerrando...");
@@ -91,7 +91,7 @@ public class MainAnimal {
                 default:
                     System.out.println("?? Opção inválida ??");
             }
-        } while (animal.checkVivo());
+        } while (isVivo);
     }
 
     public static boolean validaAnimal(AnimalVirtual animal) {
@@ -104,11 +104,5 @@ public class MainAnimal {
         }
 
         return true;
-    }
-
-    public static void clearConsole() {
-        for (int i = 0; i < 50; i++) {
-            System.out.println();
-        }
     }
 }
