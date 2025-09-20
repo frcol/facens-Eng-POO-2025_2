@@ -9,7 +9,7 @@ public class MainAnimal {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         AnimalVirtual animal = null;
-        boolean isVivo = true;
+        boolean isVivo = true; // para usar no while do menu
 
         System.out.println("=== ANIMAL VIRTUAL ===");
 
@@ -23,12 +23,12 @@ public class MainAnimal {
             System.out.print("Escolha: ");
 
             String opcao = in.next();
-            in.nextLine();
+            in.next();
             
             switch (opcao) {
                 case "1": // Cadastrar
                     System.out.print("Nome: ");
-                    String nome = in.nextLine();
+                    String nome = in.next();
 
                     System.out.print("Tipo (ex: cachorro, gato...): ");
                     String tipo = in.next();
@@ -37,7 +37,7 @@ public class MainAnimal {
                     int idade = in.nextInt();
 
                     animal = new AnimalVirtual(nome, tipo, idade);
-                    System.out.println("? Animal cadastrado com sucesso!");
+                    System.out.println("\n\n## Animal cadastrado com sucesso!");
                    
                     animal.mostrarStatus();
                     break;
@@ -61,7 +61,7 @@ public class MainAnimal {
                     
                     animal.mostrarStatus();
                     if (!animal.checkVivo()) { // morreu ao brincar
-                        System.out.println("Fim de jogo. O animal morreu. Encerrando...");
+                        System.out.println("\n\n##Fim de jogo. O animal morreu. Encerrando...");
                         isVivo = false;
                     }
                     break;
@@ -72,34 +72,30 @@ public class MainAnimal {
                     }
 
                     animal.dormir();
-
                     animal.mostrarStatus();
                     break;
 
                 case "5": // Status
                     if (animal == null) {
-                        System.out.println("Cadastre um animal primeiro (opção 1).");
+                        System.out.println("\n\n##Cadastre um animal primeiro (opção 1).");
                         break;
                     }
 
                     animal.mostrarStatus();
-                    if (!animal.checkVivo()) {
-                        System.out.println("Fim de jogo. O animal morreu. Encerrando...");
-                    }
-                    break;
+                     break;
 
                 default:
-                    System.out.println("?? Opção inválida ??");
+                    System.out.println("\n\n## Opção inválida ??");
             }
         } while (isVivo);
     }
 
     public static boolean validaAnimal(AnimalVirtual animal) {
         if (animal == null) {
-            System.out.println("Cadastre um animal primeiro (opção 1).");
+            System.out.println("\n\n##Cadastre um animal primeiro (opção 1).");
             return false;
         } else if (!animal.checkVivo()) {
-            System.out.println("O animal já está morto. O programa será encerrado.");
+            System.out.println("\n\n## animal já está morto. O programa será encerrado.");
             return false;
         }
 

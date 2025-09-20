@@ -23,36 +23,36 @@ public class AnimalVirtual {
 
     public void alimentar() {
         if (!vivo) {
-            System.out.println("?? O animal está morto. Não é possível alimentar.");
+            System.out.println("\n\n## O animal está morto. Não é possível alimentar.");
             return;
         }
         energia += 10;
-        System.out.println("? " + nome + " foi alimentado(a). Energia +10.");
+        System.out.println("\n\n## " + nome + " foi alimentado(a). Energia +10.");
     }
 
     public void brincar() {
         if (!vivo) {
-            System.out.println("?? O animal está morto. Não é possível brincar.");
+            System.out.println("\n\n## O animal está morto. Não é possível brincar.");
             return;
         }
         felicidade += 10;
         energia -= 5;
-        System.out.println("? " + nome + " brincou. Felicidade +10, Energia -5.");
+        System.out.println("\n\n## " + nome + " brincou. Felicidade +10, Energia -5.");
 
         // Se energia < 0, o animal morre
-        if (energia < 0) {
+        if (energia <= 0) {
             vivo = false;
-            System.out.println("? " + nome + " ficou sem energia e morreu.");
+            System.out.println("\n\n## " + nome + " ficou sem energia e morreu.");
         }
     }
 
     public void dormir() {
         if (!vivo) {
-            System.out.println("?? O animal está morto. Não é possível dormir.");
+            System.out.println("\n\n## O animal está morto. Não é possível dormir.");
             return;
         }
         energia = 100;
-        System.out.println("? " + nome + " dormiu e restaurou a energia para 100.");
+        System.out.println("\n\n## " + nome + " dormiu e restaurou a energia para 100.");
     }
 
     public boolean checkVivo() {
@@ -60,7 +60,7 @@ public class AnimalVirtual {
     }
 
     public void mostrarStatus() {
-        System.out.println("===== STATUS DO ANIMAL =====");
+        System.out.println("\n\n===== STATUS DO ANIMAL =====");
         System.out.println("Nome:       " + nome);
         System.out.println("Tipo:       " + tipo);
         System.out.println("Idade:      " + idade);
