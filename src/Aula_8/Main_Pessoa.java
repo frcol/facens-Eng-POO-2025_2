@@ -1,0 +1,26 @@
+package Aula_8;
+
+import java.util.ArrayList;
+
+public class Main_Pessoa {
+    public static void main(String[] args) {
+       Professor prof = new Professor("Fabio", "123", "A1");
+       prof.setSalario(35000);
+       prof.setTipoVinculo('N');
+       
+       Aluno alu = new Aluno("Joao", "2222", "RA222222");
+       alu.setNota1(6.8);
+       alu.setNota2(7.6);
+       
+        //System.out.println(prof.imprimir());
+        //System.out.println(alu.imprimir());
+        
+        ArrayList<Pessoa> lstPessoas = new ArrayList<>();
+        lstPessoas.add(prof);
+        lstPessoas.add(alu);
+        
+        for (Pessoa p : lstPessoas) {
+            System.out.println(p.imprimir());
+        }
+    }
+}
