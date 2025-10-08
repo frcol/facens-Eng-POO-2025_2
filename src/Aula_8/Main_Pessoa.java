@@ -19,8 +19,17 @@ public class Main_Pessoa {
         lstPessoas.add(prof);
         lstPessoas.add(alu);
         
-        for (Pessoa p : lstPessoas) {
+        // imprimir todos
+        /*for (Pessoa p : lstPessoas) {
             System.out.println(p.imprimir());
+        }*/
+        
+        // imprimir apenas alunos
+        for (Pessoa p : lstPessoas) {
+            if (p instanceof Aluno) {
+                System.out.println(((Aluno) p).getRa()); 
+            }
+            
         }
     }
 }
